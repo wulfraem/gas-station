@@ -24,8 +24,8 @@ jobs:
     strategy:
       matrix:
         image:
-          - { name: "iota-gas-station", repo: "iotaledger/gas-station" }
-          - { name: "tool", repo: "iotaledger/gas-station-tool" }
+          - { name: "iota-gas-station", repo: "ghcr.io/wulfraem/gas-station" }
+          - { name: "tool", repo: "ghcr.io/wulfraem/gas-station-tool" }
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
           IOTALEDGER_DOCKER_PASSWORD: ${{ secrets.IOTALEDGER_DOCKER_PASSWORD }}
         run: |
           echo $IOTALEDGER_DOCKER_PASSWORD | docker login ghcr.io -u "$IOTALEDGER_DOCKER_USERNAME" --password-stdin
-          docker push "ghcr.io/$IOTALEDGER_DOCKER_USERNAME/gas-station:latest"
+          docker push "ghcr.io/wulfraem/gas-station:latest"
 
       # - name: Docker Hub Description for ${{ matrix.image.repo }}
       #   if: ${{ github.event.inputs.is-dry-run  == 'false'}}
