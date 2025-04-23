@@ -54,7 +54,7 @@ jobs:
           IOTALEDGER_DOCKER_PASSWORD: ${{ secrets.IOTALEDGER_DOCKER_PASSWORD }}
         run: |
           echo $IOTALEDGER_DOCKER_PASSWORD | docker login ghcr.io -u "$IOTALEDGER_DOCKER_USERNAME" --password-stdin
-          docker push "ghcr.io/wulfraem/gas-station:latest"
+          docker push ${{ matrix.image.repo }}:${{ github.event.inputs.tag }}
 
       # - name: Docker Hub Description for ${{ matrix.image.repo }}
       #   if: ${{ github.event.inputs.is-dry-run  == 'false'}}
