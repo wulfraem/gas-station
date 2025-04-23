@@ -32,11 +32,11 @@ jobs:
         with:
           ref: ${{ github.event.inputs.branch }}
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567
-        with:
-          username: ${{ secrets.IOTALEDGER_DOCKER_USERNAME }}
-          password: ${{ secrets.IOTALEDGER_DOCKER_PASSWORD }}
+      # - name: Log in to Docker Hub
+      #   uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567
+      #   with:
+      #     username: ${{ secrets.IOTALEDGER_DOCKER_USERNAME }}
+      #     password: ${{ secrets.IOTALEDGER_DOCKER_PASSWORD }}
 
       - name: Build image with build.sh
         run: |
