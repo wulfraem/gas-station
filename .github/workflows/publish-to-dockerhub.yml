@@ -53,7 +53,6 @@ jobs:
           IOTALEDGER_DOCKER_USERNAME: ${{ secrets.IOTALEDGER_DOCKER_USERNAME }}
           IOTALEDGER_DOCKER_PASSWORD: ${{ secrets.IOTALEDGER_DOCKER_PASSWORD }}
         run: |
-          docker login ghcr.io -u 
           echo $IOTALEDGER_DOCKER_PASSWORD | docker login ghcr.io -u "$IOTALEDGER_DOCKER_USERNAME" --password-stdin
           docker push "ghcr.io/$IOTALEDGER_DOCKER_USERNAME/gas-station:latest"
 
