@@ -17,7 +17,6 @@ services:
         - BUILD_DATE=${BUILD_DATE:-latest}
         - GIT_REVISION=${GIT_REVISION:-latest}
       dockerfile: docker/Dockerfile
-    platform: "linux/amd64"
     container_name: iota-gas-station
     command: ["--config-path", "/app/config.yaml"]
     depends_on:
